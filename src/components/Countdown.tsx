@@ -17,7 +17,7 @@ export function Countdown() {
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
 
-  const {  } = useContext(ChallengesContext)
+  const {startNewChallenge} = useContext(ChallengesContext)
 
   function startCountdown(): void {
     setisActive(true)
@@ -35,6 +35,7 @@ export function Countdown() {
     } else if (isActive && time === 0) {
       setHasFinished(true)
       setisActive(false)
+      startNewChallenge()
     }
   }, [isActive, time])
 
