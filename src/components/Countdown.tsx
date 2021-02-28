@@ -1,6 +1,7 @@
 import styles from '../styles/components/Countdown.module.css'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ToggleActiveBtn } from "./ToggleActiveBtn";
+import { ChallengesContext } from "../contexts/ChallengesContext";
 
 let countDownTimeOut: NodeJS.Timeout
 
@@ -15,6 +16,8 @@ export function Countdown() {
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
+
+  const {  } = useContext(ChallengesContext)
 
   function startCountdown(): void {
     setisActive(true)
